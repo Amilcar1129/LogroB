@@ -103,6 +103,18 @@ export const reasignarEspecialidad = async (req, res) => {
     res.status(500).json({ message: "Error al reasignar especialidad" });
   }
   
+  
 
   
 };
+
+// 📌 Obtener todas las especialidades
+export const obtenerEspecialidades = async (req, res) => {
+  try {
+    const especialidades = await Especialidad.findAll(); // Obtener todas las especialidades
+    res.status(200).json(especialidades);
+  } catch (error) {
+    res.status(500).json({ message: "Error al obtener especialidades", error: error.message });
+  }
+};
+
